@@ -1,0 +1,33 @@
+{
+  "IE": {
+    "average_probability_shift": 0.0018849177537169082,
+    "trait_flip_rate_percent": 0.0,
+    "stability_ratio": 0.9981150822462831
+  },
+  "NS": {
+    "average_probability_shift": 0.005422970242225269,
+    "trait_flip_rate_percent": 0.0,
+    "stability_ratio": 0.9945770297577747
+  },
+  "TF": {
+    "average_probability_shift": 0.01336440169905919,
+    "trait_flip_rate_percent": 0.0,
+    "stability_ratio": 0.9866355983009408
+  },
+  "JP": {
+    "average_probability_shift": 0.007419699525047537,
+    "trait_flip_rate_percent": 0.0,
+    "stability_ratio": 0.9925803004749525
+  },
+  "summary": {
+    "mean_aps": 0.007022997305012227,
+    "mean_tfr": 0.0,
+    "mean_sr": 0.9929770026949878
+  },
+  "config": {
+    "intervention_feature": "pronoun_ratio",
+    "intervention_lambda": 0.3,
+    "reference_value": 0.13332714140415192,
+    "n_test_samples": 1735
+  }
+}

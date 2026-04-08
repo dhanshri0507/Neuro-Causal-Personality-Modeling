@@ -1,0 +1,10 @@
+{
+  "step": "weighted_fusion",
+  "alpha_values": [
+    0.5,
+    1,
+    2
+  ],
+  "beta": 1,
+  "random_state": 42
+}

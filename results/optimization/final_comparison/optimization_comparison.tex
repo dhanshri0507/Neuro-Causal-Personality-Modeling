@@ -1,0 +1,90 @@
+% Optimization Study & Interpretability Analysis
+\section{Experimental Results}
+
+\subsection{Performance Optimization}
+Table \ref{tab:optimization_comparison} summarizes the results of our systematic optimization study. While parameter tuning and dimensionality reduction yielded modest improvements (increasing Macro-F1 from 0.49 to 0.53), the TF-IDF baseline remains the performance leader.
+
+\begin{table}[h]
+\centering
+\caption{Top Configuration Comparison - Macro-F1 Scores}
+\label{tab:optimization_comparison}
+\begin{tabular}{llc}
+\hline
+Step & Configuration & Avg F1 \\
+\hline
+\textbf{TF-IDF Baseline} & \textbf{LinearSVC} & \textbf{0.792} \\
+PCA Study & Semantic-PCA (95\% var) & 0.533 \\
+PCA Study & Semantic-PCA (90\% var) & 0.532 \\
+Weighted Fusion & $\alpha=0.5$ & 0.530 \\
+Weighted Fusion & $\alpha=2.0$ & 0.529 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Interpretability and Stability Analysis}
+To validate the causal reasoning capabilities of our Joint Framework, we conducted a systematic counterfactual intervention study. We perturbed each cognitive feature $x_i$ towards the population mean by a factor $\lambda$ and measured the Average Probability Shift (APS) in the model's predictions.
+
+\subsubsection{Cognitive Feature Sensitivity}
+Table \ref{tab:sensitivity} presents the sensitivity ranking of cognitive features based on the mean APS across all four personality dimensions under full intervention ($\lambda=1.0$).
+
+\input{../../stability_comprehensive/sensitivity_table.tex}
+
+The results align with psycholinguistic theory:
+\begin{itemize}
+    \item \textbf{Planning markers} strongly drive the Judging/Perceiving dimension (APS=0.0189).
+    \item \textbf{Emotion intensity} is a key predictor for Thinking/Feeling (APS=0.0182).
+    \item \textbf{Pronoun usage} significantly influences Introversion/Extroversion (APS=0.0121).
+\end{itemize}
+
+Figure \ref{fig:sensitivity_heatmap} visualizes the complete feature-dimension sensitivity matrix, revealing the structured dependencies captured by the model.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../../figures/fig4_sensitivity_heatmap.png}
+    \caption{Cognitive Feature Sensitivity Heatmap. Brighter colors indicate stronger causal impact of the feature on the specific personality dimension.}
+    \label{fig:sensitivity_heatmap}
+\end{figure}
+
+\subsubsection{Stability and Robustness Profile}
+To further quantify the model's behavior under intervention, we analyzed the stability metrics across varying perturbation magnitudes ($\lambda \in \{0.3, 0.5, 1.0\}$).
+
+Figure \ref{fig:stability_curve} illustrates the Stability Adjustment Curve. The linear relationship between intervention magnitude and probability shift (APS) confirms that the model behaves predictably and does not exhibit erratic sensitivity to small perturbations.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../../figures/fig5_stability_curve.png}
+    \caption{Stability Adjustment Curve. The Average Probability Shift (APS) increases smoothly with intervention magnitude ($\lambda$), demonstrating controlled sensitivity rather than instability. The Thinking-Feeling (TF) dimension shows the steepest slope, indicating it is the most responsive to cognitive feature changes.}
+    \label{fig:stability_curve}
+\end{figure}
+
+Additionally, the Trait Flip Rate (TFR) analysis (Figure \ref{fig:tfr_curve}) reveals that even at maximum intervention ($\lambda=1.0$), the flip rate remains below 5\% for most dimensions. This high robustness ($\text{SR} > 0.95$) confirms that the core personality predictions are stable, with cognitive features acting as nuanced modifiers rather than sole determinants.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\linewidth]{../../figures/supp_tfr_curve.png}
+    \caption{Trait Flip Rate (TFR) Robustness Profile. Theoretical flip rates remain low ($<10\%$) even under strong interventions, confirming the structural stability of the Joint Framework.}
+    \label{fig:tfr_curve}
+\end{figure}
+
+\subsubsection{Accuracy-Interpretability Trade-off}
+While the TF-IDF baseline achieves higher predictive accuracy (Macro-F1 0.79), it lacks the structural transparency required for this type of casual analysis. Figure \ref{fig:tradeoff} illustrates the empirical trade-off between predictive performance and interpretability.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../../figures/fig2_tradeoff_scatter.png}
+    \caption{Empirical Accuracy-Interpretability Trade-off. The Joint Framework trades approximately 33\% of predictive performance for full causal interpretability, offering a distinct value proposition for psychological research.}
+    \label{fig:tradeoff}
+\end{figure}
+
+\section{Discussion}
+Our findings highlight a fundamental tension in automated personality assessment: the trade-off between predictive maximization and causal explanation. The TF-IDF baseline, effectively a "bag-of-words" model, achieves high accuracy by exploiting shallow lexical patterns but offers no insight into the \textit{why} of personality expression.
+
+In contrast, our Joint Cognitive-Semantic Framework, while sacrificing raw performance, provides:
+\begin{itemize}
+    \item \textbf{Causal Validity}: The stability analysis confirms that interventions on cognitive features produce predictable, theory-aligned shifts in probability (Figure \ref{fig:stability_curve}).
+    \item \textbf{Psycholinguistic Grounding}: The sensitivity rankings (Table \ref{tab:sensitivity}) map directly to known psychological constructs (e.g., Planning $\rightarrow$ Judging), validating the feature engineering process.
+    \item \textbf{Actionable Explanations}: Unlike black-box models, our framework enables counterfactual reasoning (e.g., "If this user used fewer negations, their score would shift by X\%"), which is critical for user-facing applications.
+\end{itemize}
+
+\section{Conclusion}
+We have presented an interpretability-driven neuro-causal framework for MBTI classification. By explicitly modeling cognitive features and enabling counterfactual analysis, our approach provides structured explanations grounded in psychological theory. While experimental results confirm that black-box models currently offer superior predictive accuracy, our framework establishes a necessary foundation for transparent, accountable AI in psychometric analysis. Future work effectively bridges this gap by exploring neuro-symbolic fusion architectures that retain the predictive power of deep learning while preserving the causal clarity demonstrated here.

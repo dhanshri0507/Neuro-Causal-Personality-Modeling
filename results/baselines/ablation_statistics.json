@@ -1,0 +1,28 @@
+{
+  "joint_vs_cognitive": {
+    "mean_improvement": 0.10003325192043887,
+    "std_improvement": 0.07859669450011077,
+    "per_dimension": {
+      "IE": 0.04450688870847075,
+      "NS": 0.2080183286297288,
+      "TF": 0.008268220035943408,
+      "JP": 0.13933957030761251
+    },
+    "num_improved": 4,
+    "num_degraded": 0,
+    "num_dimensions": 4
+  },
+  "joint_vs_semantic": {
+    "mean_improvement": 0.009799253104502137,
+    "std_improvement": 0.01606812930055471,
+    "per_dimension": {
+      "IE": -0.009425513549304765,
+      "NS": 0.03442708514631787,
+      "TF": 0.0025140103896402755,
+      "JP": 0.011681430431355166
+    },
+    "num_improved": 3,
+    "num_degraded": 1,
+    "num_dimensions": 4
+  }
+}

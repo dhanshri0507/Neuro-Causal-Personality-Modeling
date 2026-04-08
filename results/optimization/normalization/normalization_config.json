@@ -1,0 +1,9 @@
+{
+  "step": "normalization",
+  "strategies": [
+    "separate_scaling",
+    "joint_scaling",
+    "no_scaling"
+  ],
+  "random_state": 42
+}
