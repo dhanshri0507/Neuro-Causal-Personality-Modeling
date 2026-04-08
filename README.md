@@ -350,19 +350,8 @@ The Phase-3 module provides:
 | Joint Fused (LR) | 0.532 | 0.504 | 0.515 | 0.584 | 0.526 |
 | **Hybrid Gated Fusion** | **0.535** | **0.515** | **0.512** | **0.587** | **0.527** |
 
----
-
-## Key Results (Hybrid Gated Fusion model):
-
-| MBTI Dimension | F1 Score |
-|----------------|----------|
-| I/E            | 0.5146   |
-| N/S            | 0.5119   |
-| T/F            | 0.5867   |
-| J/P            | 0.5271   |
-| **Average**    | **0.535** |
-
 > Outperforms BERT-only (0.522) and Joint Fused (0.532) baselines.
+---
 
 ## 🛠️ Tech Stack
 
