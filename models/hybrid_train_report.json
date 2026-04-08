@@ -1,0 +1,29 @@
+{
+  "semantic_only_avg_f1": 0.5193079467748368,
+  "semantic_best_C": 0.03,
+  "semantic_per_dim": {
+    "IE": 0.5095291597119204,
+    "NS": 0.4778691355957042,
+    "TF": 0.5779404418558788,
+    "JP": 0.511893049935844
+  },
+  "concat_avg_f1": 0.5328177081339265,
+  "concat_best_C": 0.03,
+  "concat_per_dim": {
+    "IE": 0.5042481816199895,
+    "NS": 0.4861772632803765,
+    "TF": 0.6188555917169725,
+    "JP": 0.5219897959183674
+  },
+  "hybrid_trained_avg_f1": 0.535088742850396,
+  "hybrid_per_dim": {
+    "IE": 0.5146223968994786,
+    "NS": 0.5119190794955346,
+    "TF": 0.5867375168690958,
+    "JP": 0.527075978137475
+  },
+  "checkpoint": "D:\\Projects\\Major_Project\\mbti-neuro-causal\\models\\hybrid_fusion_trained.pt",
+  "use_mlp_trunk": true,
+  "mlp_hidden": 384,
+  "dropout": 0.2
+}
