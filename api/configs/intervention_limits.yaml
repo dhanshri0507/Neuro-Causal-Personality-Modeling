@@ -1,0 +1,23 @@
+# ================================
+# Counterfactual intervention configuration
+# ================================
+
+# Default cognitive feature to intervene on
+default_feature: pronoun_ratio
+
+# Default intervention strength (lambda)
+# Must be in [0.2, 0.4] as per causal design
+default_lambda: 0.3
+
+# Reference mean values for cognitive features
+# These are population-level anchors, not predictions
+reference_means:
+  pronoun_ratio: 0.35
+  modality_score: 0.15
+  negation_count: 0.10
+  emotion_intensity: 0.20
+  lexical_diversity: 0.55
+  reasoning_prop: 0.25
+  planning_prop: 0.20
+  uncertainty_prop: 0.18
+
