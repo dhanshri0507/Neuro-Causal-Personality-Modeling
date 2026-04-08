@@ -54,32 +54,6 @@ Raw Text Input
                   │
                   ▼
         MBTI Type + Explanation
-```
-
----
-
-## 🔬 Research Contributions
-
-This work is documented in three companion papers:
-
-| Paper | Venue | File |
-|-------|-------|------|
-| *Neuro-Causal Personality Prediction* | Master's Project (Full) | `MP.tex` |
-| *Neuro-Causal Personality Prediction* | IEEE Transactions on Affective Computing | `ieee_tac.tex` |
-| *Neuro-Causal Personality Prediction* | arXiv Preprint | `arxiv.tex` |
-
-**Key Results** (Hybrid Gated Fusion model):
-
-| MBTI Dimension | F1 Score |
-|----------------|----------|
-| I/E            | 0.5146   |
-| N/S            | 0.5119   |
-| T/F            | 0.5867   |
-| J/P            | 0.5271   |
-| **Average**    | **0.535** |
-
-> Outperforms BERT-only (0.519) and simple concatenation (0.533) baselines.
-
 ---
 
 ## 📁 Project Structure
@@ -182,22 +156,10 @@ Major_Project/
 │   │
 │   └── requirements.txt
 │
-├── ArXIV/                          # ArXiv submission bundle
-├── Documentation_Files/            # Project documentation & reports
-│
-├── MP.tex                          # Full project paper (Springer svproc)
-├── ieee_tac.tex                    # IEEE TAC formatted paper
-├── arxiv.tex                       # ArXiv preprint
-├── sample_input.txt                # Example input text
-│
-└── *.png                           # Publication figures
+└── *.png                           
     ├── system_architecture.png
     ├── causal_dag.png
-    ├── data_flow.png
-    ├── confusion_matrices_grid.png
-    ├── roc_curves_grid.png
-    ├── fig4_sensitivity_heatmap.png
-    └── fig5_stability_curve.png
+    └── data_flow.png
 ```
 
 ---
